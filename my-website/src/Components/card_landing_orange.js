@@ -10,6 +10,11 @@ const Card_landing = () =>
 
   let navigate = useNavigate();
 
+  const openInNewTab = (url) => {
+    const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+    if (newWindow) newWindow.opener = null
+  }
+
   return (
     <Grommet full theme={theme}>
       <Box fill="vertical" overflow="hidden" align="center" flex="grow" background={{"color":"background-back","dark":false}} direction="column" responsive wrap={false} justify="center" pad="xsmall" gap="none" elevation="none" animation="slideDown">
@@ -24,20 +29,19 @@ const Card_landing = () =>
           <Mail size="35px" color="neutral!" onClick={() => {navigate("/About")}}/>
           </div>
         </Box>
-        <Card height="xsmall" width="medium" background={{"color":"white"}} hoverIndicator={{"opacity":"strong","dark":true,"color":"active-background"}} onClick={() => {navigate("/About")}} margin={{"top":"small"}}>
+        <Card height="xsmall" width="medium" background={{"color":"white"}} hoverIndicator={{"opacity":"strong","dark":true,"color":"active-background"}} onClick={() => openInNewTab('https://discreet-slipper-97e.notion.site/Personal-Website-6c3c2e13ca7f44d090cbcbde8307df60')} margin={{"top":"small"}}>
           <Text textAlign="start" weight="bold" margin={{"vertical":"medium","left":"medium"}} size="small">
-            Notion
+            How I made this website
           </Text>
         </Card>
-        <Card height="xsmall" width="medium" hoverIndicator={{"opacity":"strong","dark":true,"color":"active-background"}} onClick={() => {navigate("/About")}} background={{"color":"background-front","dark":false}}>
+        <Card height="xsmall" width="medium" hoverIndicator={{"opacity":"strong","dark":true,"color":"active-background"}} onClick={() => openInNewTab('https://www.youtube.com/channel/UCqbKg3VGTwk81a7BhKNiHeA')} background={{"color":"background-front","dark":false}}>
           <Text textAlign="start" size="small" weight="bold" margin={{"vertical":"medium","left":"medium"}}>
             Waktu Indonesia Coding
           </Text>
         </Card>
-        <Card background={{"dark":true,"color":"neutral!"}} height="xsmall" width="medium" hoverIndicator={{"color":"active-background","dark":true,"opacity":"strong"}} onClick={() => {navigate("/About")}} border={{"color":"active","side":"bottom"}} gap="none">
+        <Card background={{"dark":true,"color":"neutral!"}} height="xsmall" width="medium" hoverIndicator={{"color":"active-background","dark":true,"opacity":"strong"}} onClick={() => openInNewTab('https://discreet-slipper-97e.notion.site/Resume-Courses-Taken-9934a9d24de34e5ba42b9288e0bb32af') } border={{"color":"active","side":"bottom"}} gap="none">
           <Text size="small" weight="bold" margin={{"vertical":"medium","left":"medium"}} truncate={false} color="white">
             Resume + Courses
-
           </Text>
         </Card>
         <Box align="center" justify="center" direction="row" gap="large" pad="large">
