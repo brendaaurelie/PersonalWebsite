@@ -44,21 +44,36 @@ const Card_landing = () =>
             Resume + Courses
           </Text>
         </Card>
-        <Box align="center" justify="center" direction="row" gap="large" pad="large">
-
+        <Box align="center" justify="center" direction="row" gap="large" pad="xsmall" margin={{"top":"medium"}}>
+        <Box align="center" justify="center">
           <div className='small_cards'>
-          <Card width="xsmall" height="xsmall" background={{"image":"url(https://i.imgur.com/RLYFAxJ.png)"}} onClick={() => {navigate("/About")}}/>
+          <Card width="xsmall" height="xsmall" background={{"image":"url(https://i.imgur.com/RLYFAxJ.png)"}} onClick={() => {navigate("/About")}} margin={{"bottom":"small"}}/>
           </div> 
+          <Text textAlign="center" weight="bold">
+              About
+            </Text>
+            </Box>
+          <Box align="center" justify="center" pad="xsmall">
 
           <div className='small_cards'>
-           <Card width="xsmall" height="xsmall" background={{"image":"url(https://i.imgur.com/QBg2R29.png)"}} onClick={() => {navigate("/About")}} />
+           <Card width="xsmall" height="xsmall" background={{"image":"url(https://i.imgur.com/QBg2R29.png)"}} onClick={() => {navigate("/About")}} margin={{"bottom":"small"}}/>
            </div> 
-
+           <Text textAlign="center" weight="bold">
+              Project
+            </Text>
+          </Box>
+          <Box align="center" justify="center">
            <div className='small_cards'>
-          <Card width="xsmall" height="xsmall"  background={{"image":"url(https://i.imgur.com/05BBoGe.jpeg)"}} onClick={() => {navigate("/About")}}/>
+          <Card width="xsmall" height="xsmall"  background={{"image":"url(https://i.imgur.com/05BBoGe.jpeg)"}} onClick={() => {navigate("/About")}} margin={{"bottom":"small"}} />
           </div> 
-         
+          <Text textAlign="center" weight="bold">
+              Gallery
+            </Text>
+          </Box>
         </Box>
+
+       
+
       </Box>
     </Grommet>
   )
