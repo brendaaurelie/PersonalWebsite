@@ -1,0 +1,9 @@
+.small_cards
+{
+    transition:0.5s;
+}
+
+.small_cards:hover
+{
+    transform: scale(1.05);
+}
