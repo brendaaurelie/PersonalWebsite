@@ -1,4 +1,5 @@
 import {React, useState} from 'react'
+import {Link} from 'react-router-dom'
 
 import { theme } from '../theme'
 import { Grommet, Box, Card, Text, Button, Paragraph, Notification, CardFooter } from 'grommet'
@@ -16,8 +17,11 @@ const Card_landing = () =>
     if (newWindow) newWindow.opener = null
   }
 
-  const openEmail = () => {
-    console.log("IM IN OPEN MAIL")
+
+
+  const openEmail = (url) => {
+    const newWindow = window.location.href = url;
+    if (newWindow) newWindow.opener = null
     
     // if(visible){
     return (
@@ -41,7 +45,7 @@ const Card_landing = () =>
                 Brenda Aurelie
               </Text>
               <div className='small_cards'>
-              <Card width="medium" height="450px" margin={{"top":"medium"}} background={{"image":"url(https://i.imgur.com/aSY8wMg.jpeg)"}} justify="end" onClick={() => navigate("/About")}>
+              <Card width="medium" height="450px" margin={{"top":"medium", "bottom":"large"}} background={{"image":"url(https://i.imgur.com/aSY8wMg.jpeg)"}} justify="end" onClick={() => navigate("/About")}>
                
                   <Text size="large" textAlign="center" weight="bold" margin="medium" color="white">
                     About me
@@ -62,7 +66,7 @@ const Card_landing = () =>
           <Github color="neutral!" size="35px" onClick={() => {openInNewTab("https://github.com/brendaaurelie")}}/>
           </div>
            <div className='small_cards'>
-          <Mail size="35px" color="neutral!" onClick={() => {setVisible(true); openEmail()}}/>
+          <Mail size="35px" color="neutral!" onClick={() => { openEmail('mailto:brenda.aurelie@gmail.com?subject=Connect&body=Hi!'); console.log("IM MAILIN");}}/>
           </div>
           <div className='small_cards'>
           <Linkedin size="35px" color="neutral!" onClick={() => {openInNewTab("https://www.linkedin.com/in/brendahariyanto/")}}/>
