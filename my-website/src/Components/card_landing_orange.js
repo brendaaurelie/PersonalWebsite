@@ -1,7 +1,7 @@
 import {React, useState} from 'react'
 
 import { theme } from '../theme'
-import { Grommet, Box, Card, Text, Button, Paragraph, Notification } from 'grommet'
+import { Grommet, Box, Card, Text, Button, Paragraph, Notification, CardFooter } from 'grommet'
 import { Instagram, Github, Mail, Linkedin } from 'grommet-icons'
 import { useNavigate } from "react-router-dom";
 import "./card_landing_orange.css";
@@ -18,22 +18,42 @@ const Card_landing = () =>
 
   const openEmail = () => {
     console.log("IM IN OPEN MAIL")
+    
+    // if(visible){
     return (
-
-        visible && (
           <Notification
             toast
             title="Toast Notification"
             message="This is an example of a toast notification"
             onClose={() => setVisible(false)}
-          />
-        )
+          />   
     )
+      // }
   }
 
   return (
     <Grommet full theme={theme}>
-      <Box fill="vertical" overflow="hidden" align="center" flex="grow" background={{"color":"background-back","dark":false}} direction="column" responsive wrap={false} justify="center" pad="xsmall" gap="none" elevation="none" animation="slideDown">
+       <Box fill="vertical" overflow="hidden" align="center" flex="grow" background={{"color":"background-back","dark":false}} direction="row-responsive" responsive wrap={false} justify="center" gap="xlarge" elevation="none" >
+
+      {/* LEFT CARDS */}
+       <Box align="center" justify="center" margin={{"vertical":"xlarge"}} animation="slideUp">
+              <Text size="3xl" weight="900" color="#1b1a19">
+                Brenda Aurelie
+              </Text>
+              <div className='small_cards'>
+              <Card width="medium" height="450px" margin={{"top":"medium"}} background={{"image":"url(https://i.imgur.com/aSY8wMg.jpeg)"}} justify="end" onClick={() => navigate("/About")}>
+               
+                  <Text size="large" textAlign="center" weight="bold" margin="medium" color="white">
+                    About me
+                  </Text>
+   
+              </Card>
+              </div>
+            </Box>
+
+
+{/* RIGHT CARDS */}
+  <Box align="center" justify="center" animation="slideDown">
         <Box align="center" justify="center" direction="row" pad={{"vertical":"small"}} gap="large" responsive wrap={false} elevation="none">
         <div className='small_cards'>
           <Instagram color="neutral!" size="35px" onClick={() => {openInNewTab("https://www.instagram.com/brendaaurelie/")}} />
@@ -91,39 +111,13 @@ const Card_landing = () =>
           </Box>
         </Box>
 
+
        
 
+      </Box>
       </Box>
     </Grommet>
   )
 }
 
 export default Card_landing;
-
-// return (
-//   <Grommet full theme={theme}>
-//   {/* <Box fill="vertical" overflow="auto" align="center" flex="grow" background={{"color":"active-text","dark":true}} direction="column" responsive={false} wrap={false}> */}
-//     <Card background={{"dark":true,"color":"neutral!"}} height="xsmall" width="medium" hoverIndicator={{"color":"active-background","dark":true,"opacity":"strong"}} onClick={() => {navigate("/About")}} >
-//       <Text size="small" weight="bold" margin={{"vertical":"medium","left":"medium"}} truncate={false} color="white">
-//         Waktu Indonesia Coding
-
-//       </Text>
-//     </Card>
-
-//     <Card background={{"dark":true,"color":"white"}} height="xsmall" width="medium" hoverIndicator={{"color":"active-background","dark":true,"opacity":"strong"}} onClick={() => {navigate("/About")}}>
-//           <Text size="small" weight="bold" margin={{"vertical":"medium","left":"medium"}} truncate={false} color="background-front">
-//             Notion
-//           </Text>
-//         </Card>
-
-//         <Card background="#ebded4" height="xsmall" width="medium" hoverIndicator={{"color":"active-background","dark":true,"opacity":"strong"}} onClick={() => {navigate("/About")}}>
-//           <Text size="small" weight="bold" margin={{"vertical":"medium","left":"medium"}} truncate={false}>
-//             Resume + Courses
-
-//           </Text>
-//         </Card>
-//   {/* </Box> */}
-
- 
-// </Grommet>
-//   )
