@@ -1,18 +1,34 @@
-import React from 'react'
+import {React, useState} from 'react'
 
 import { theme } from '../theme'
-import { Grommet, Box, Card, Text } from 'grommet'
-import { Instagram, Github, Mail } from 'grommet-icons'
+import { Grommet, Box, Card, Text, Button, Paragraph, Notification } from 'grommet'
+import { Instagram, Github, Mail, Linkedin } from 'grommet-icons'
 import { useNavigate } from "react-router-dom";
 import "./card_landing_orange.css";
 const Card_landing = () =>
 {
 
   let navigate = useNavigate();
+  const [visible, setVisible] = useState(true);
 
   const openInNewTab = (url) => {
     const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
     if (newWindow) newWindow.opener = null
+  }
+
+  const openEmail = () => {
+    console.log("IM IN OPEN MAIL")
+    return (
+
+        visible && (
+          <Notification
+            toast
+            title="Toast Notification"
+            message="This is an example of a toast notification"
+            onClose={() => setVisible(false)}
+          />
+        )
+    )
   }
 
   return (
@@ -20,13 +36,16 @@ const Card_landing = () =>
       <Box fill="vertical" overflow="hidden" align="center" flex="grow" background={{"color":"background-back","dark":false}} direction="column" responsive wrap={false} justify="center" pad="xsmall" gap="none" elevation="none" animation="slideDown">
         <Box align="center" justify="center" direction="row" pad={{"vertical":"small"}} gap="large" responsive wrap={false} elevation="none">
         <div className='small_cards'>
-          <Instagram color="neutral!" size="35px" onClick={() => {navigate("/About")}} />
+          <Instagram color="neutral!" size="35px" onClick={() => {openInNewTab("https://www.instagram.com/brendaaurelie/")}} />
           </div>
           <div className='small_cards'>
-          <Github color="neutral!" size="35px" onClick={() => {navigate("/About")}}/>
+          <Github color="neutral!" size="35px" onClick={() => {openInNewTab("https://github.com/brendaaurelie")}}/>
           </div>
            <div className='small_cards'>
-          <Mail size="35px" color="neutral!" onClick={() => {navigate("/About")}}/>
+          <Mail size="35px" color="neutral!" onClick={() => {setVisible(true); openEmail()}}/>
+          </div>
+          <div className='small_cards'>
+          <Linkedin size="35px" color="neutral!" onClick={() => {openInNewTab("https://www.linkedin.com/in/brendahariyanto/")}}/>
           </div>
         </Box>
         <Card height="xsmall" width="medium" background={{"color":"white"}} hoverIndicator={{"opacity":"strong","dark":true,"color":"active-background"}} onClick={() => openInNewTab('https://discreet-slipper-97e.notion.site/Personal-Website-6c3c2e13ca7f44d090cbcbde8307df60')} margin={{"top":"small"}}>
